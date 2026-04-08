@@ -24,7 +24,7 @@ A high-performance Python-based computer vision application that tracks multiple
 
 1. **Clone the repository**:
    ```bash
-   git clone <repository-url>
+   git clone <https://github.com/Pragati2006/Face-Tracking-and-Head-Movement-Detection.git>
    cd "CV project"
    ```
 
