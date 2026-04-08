@@ -1,24 +1,24 @@
-# Multi-Face Real-Time Tracker & Movement Analytics
+# Multi-Face Real-Time Tracker & Cumulative Analytics
 
-A high-performance Python-based computer vision application that tracks multiple faces in real-time, predicts their movement using Kalman Filters, and analyzes directional attention. The system generates a consolidated visual report at the end of each session, providing insights into directional attention.
+A high-performance Python-based computer vision application that tracks multiple faces in real-time, predicts their movement using Kalman Filters, and analyzes directional attention. The system now features **Persistent Face ID tracking** and generates a detailed **Cumulative Report** encompassing both individual and session-wide metrics.
 
 ## 🚀 Features
 
-- **Real-Time Multi-Face Tracking**: Simultaneously detects and tracks multiple individuals with stable ID assignment.
+- **Persistent Face Re-Identification**: Uses **Visual Fingerprinting** (HSV Histograms) to recognize faces. If a person leaves and re-enters the frame, they retain their original **Face ID**.
+- **Stable Multi-Face Tracking**: Implements a **Hybrid Association Logic** (Spatial + Visual) that prevents ID swapping and ensures tracking remains "sticky" even during fast movement.
 - **Directional Attention Analysis**: Calculates if a person is looking **Center**, **Left**, **Right**, **Up**, or **Down** based on facial landmark orientation.
-- **Predictive Smoothing**: Uses **Kalman Filters** (2D) to predict face positions and maintain track stability even during brief occlusions or fast movements.
-- **Automated Analytics Dashboard**: Generates a consolidated PNG report including:
-    - **Directional Attention Distribution**: A pie chart showing time spent in each direction across all faces.
-    - **Attention Score**: Percentage of time spent looking directly at the screen (**Center**).
-    - **Observation Time**: Measures total time each individual was tracked.
-- **Aggregate Reporting**: Saves a time-stamped visual summary combining data from all detected faces into one high-level dashboard.
+- **Predictive Smoothing**: Uses **Kalman Filters** (2D) to predict positions and maintain stability during brief occlusions.
+- **Enhanced Cumulative Dashboard**: Generates a high-quality visual report including:
+    - **Aggregate Section**: Overall attention distribution across all faces.
+    - **Individual Section**: Dedicated stats for **each unique Face ID**, including their specific Attention Score, total visibility time, and movement frequency.
+- **Noise Filtering**: Automatically ignores short-lived detections (under 2 seconds) to ensure the final report is accurate and clean.
 
 ## 🛠️ Tech Stack
 
-- **OpenCV**: Core image processing and UI rendering.
+- **OpenCV**: Core image processing, UI rendering, and histogram matching.
 - **MediaPipe**: Blazingly fast face detection and landmark extraction.
 - **NumPy**: Efficient numerical operations for Kalman Filter matrices.
-- **Matplotlib**: Generation of analytical charts and session reports.
+- **Matplotlib**: Generation of the multi-section analytical session reports.
 
 ## 📦 Installation
 
@@ -48,13 +48,15 @@ python main.py
 ```
 
 ### Controls
-- **'q'**: Quit the application and automatically generate the session report.
+- **'q'**: Quit the application and automatically compile the **Cumulative Report**.
 
-The system will display the live camera feed with bounding boxes, face IDs, and real-time directional labels.
+The system will display the live camera feed with bounding boxes, persistent IDs, confidence scores, and real-time movement labels.
 
 ## 📊 Session Reports
 
-Upon exiting, the application saves an aggregate report (e.g., `session_report_20260407_223100.png`) in the project directory. This report provides a visual breakdown of the session's overall metrics, measuring the total attention of all participants during the observation period.
+Upon exiting, the application saves a cumulative report (e.g., `session_report_20260408_101500.png`). Unlike basic trackers, this report provides:
+1.  **A Global Summary**: Total attention and metrics for the entire environment.
+2.  **Per-Person Detail**: Individual pie charts and performance cards for every recognized face, allowing you to compare attention levels between participants.
 
----
-*Created as part of a real-time computer vision experiment.*
+--
+*Created as part of a real-time computer vision experiment with advanced ID persistence.*
