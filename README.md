@@ -58,5 +58,14 @@ Upon exiting, the application saves a cumulative report (e.g., `session_report_2
 1.  **A Global Summary**: Total attention and metrics for the entire environment.
 2.  **Per-Person Detail**: Individual pie charts and performance cards for every recognized face, allowing you to compare attention levels between participants.
 
+## 📝 Comparison with Version 1
+
+| Feature | `Version 2` (MediaPipe) | `Version 1` (OpenCV) |
+| :--- | :--- | :--- |
+| **Accuracy** | Extremely High | Moderate |
+| **Speed** | Fast (requires more RAM) | Blazingly Fast (Lower RAM) |
+| **Complexity** | High (Robust Tracking/Re-ID) | Low (Purely Detection-based) |
+| **Dependencies** | MediaPipe, Kalman Filter | OpenCV Only |
+
 --
 *Created as part of a real-time computer vision experiment with advanced ID persistence.*
