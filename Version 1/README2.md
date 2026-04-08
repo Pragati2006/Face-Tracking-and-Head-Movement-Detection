@@ -33,14 +33,7 @@ python main2.py
 ### Controls
 - **ESC**: Exit the application.
 
-## 📝 Comparison with main.py
 
-| Feature | `main.py` (MediaPipe) | `main2.py` (OpenCV) |
-| :--- | :--- | :--- |
-| **Accuracy** | Extremely High | Moderate |
-| **Speed** | Fast (requires more RAM) | Blazingly Fast (Lower RAM) |
-| **Complexity** | High (Robust Tracking/Re-ID) | Low (Purely Detection-based) |
-| **Dependencies** | MediaPipe, Kalman Filter | OpenCV Only |
 
 ---
 *Created as a lightweight alternative for basic facial feature detection.*
